@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet"> 
+        <!--     Pagina de icons -->
+        <script src="https://kit.fontawesome.com/aef00d3210.js" crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <title>Proyecto en Playground</title>
+    </head>
+    <body>   
+        <%- include('parcials/header.ejs') %>
+        <main class="main">
+            <%- include('parcials/banner.ejs') %>
+                <h4 class="titulo-section__h4">Basado en tu última visita</h4>
+                <section class="section__caja" >
+                    <!-- Producto -->
+                    <% productosVisitados.forEach(producto => { %>
+                        <a href="/product/detail/<%= producto.id %>">
+                        <article class="articilo_article__caja">
+                            <div class="div__img">
+                                <img src="/img/products/<%= producto.image %>" alt="imagenCafetera" class="img">
+                            </div>
+                            <div class="div-descripcion">
+                                <div class="content__camion-circulo">
+                                    <i class="fa-sharp fa-solid fa-truck camion-icon"></i>
+                                </div>
+                                <p class="articulo-article__precio" >$<%= producto.price %></p>
+                                <p class="articulo-article__descuento"><%= producto.discount %>%</p>
+                                <p class="articulo-artlite__descripcion"><b><%= producto.name %></b></p>
+                            </div>
+                        </article>
+                        </a>
+                    <% }) %> 
+                </section>
+                <h4 class="titulo-section__h4">Basado en tu última visita</h4>
+                <section class="section__caja">
+                    <!-- Producto -->
+                    <% productosEnOferta.forEach(producto => { %>
+                        <a href="/product/detail/<%= producto.id %>">
+                            <article class="articilo_article__caja">
+                                <div class="div__img">
+                                    <img src="/img/products/<%= producto.image %>" alt="imagenCafetera" class="img">
+                                </div>
+                                <div class="div-descripcion">
+                                    <div class="content__camion-circulo">
+                                        <i class="fa-sharp fa-solid fa-truck camion-icon"></i>
+                                    </div>
+                                    <p class="articulo-article__precio" >$<%= producto.price %></p>
+                                    <p class="articulo-article__descuento"><%= producto.discount %>%</p>
+                                    <p class="articulo-artlite__descripcion"><b><%= producto.name %></b></p>
+                                </div>
+                            </article>
+                        </a>
+                    <% }) %> 
+                    <!-- Fin Producto -->
+                </section>
+                
+        </main>
+        <%- include('parcials/footer.ejs') %>
+    </body>
+</html>
