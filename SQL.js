@@ -482,3 +482,31 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 
 				return Pelicula;
 			}
+
+	FIND: Sequelize utiliza la función find para buscar información en una base de datos. Junto con find tenemos algunas 
+		variaciones como findAll(), findOne(), findByPk().
+			1. findAll(): Para buscar todos los datos registrados en la tabla debemos usar: findAll().
+				const db = require('../database/models');
+
+				db.Usuario.findAll()
+				.then((resultados) => {
+				       console.log(resultados);
+				});
+
+			2. findOne(): Nos permite buscar resultados que coincidan con los atributos indicados en el objeto literal que recibe el método.
+				db.Usuario.findOne({
+				where: {
+				   name: 'Tony'
+				 }
+				}).then((resultado) =>{
+				   console.log(resultado);
+				});
+
+			3. findByPk(): Este método busca un registro con la clave primaria del mismo valor al parámetro pasado:
+				db.Auto.findByPk(42)
+				.then((resultado) => {
+				       console.log(resultado);
+				});
+				// SELECT * FROM autos WHERE id = 42; 
+
+

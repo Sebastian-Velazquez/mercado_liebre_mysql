@@ -37,12 +37,14 @@ app.set('views', path.join(__dirname, '/views')); //Es necesario para que la car
 const homeRouter = require('./routes/homeRouter.js')
 const userRouter = require('./routes/userRouter.js')
 const productRouter = require('./routes/productRouter.js');
+const moviesRouter = require('./routes/moviesRouter.js');
 
 
 // Usando los enrutadores importados linea 5
 app.use("/", homeRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
+app.use("/movies", moviesRouter);
 
 //Es para escuchar el servido  hacerlo que ande  en Tander
 const port = process.env.PORT || 3001;
