@@ -1,4 +1,4 @@
-let db = require("../../database/models");
+/* let db = require("../../database/models");
 
 const controlador ={ 
     list: (req, res)=>{
@@ -11,4 +11,4 @@ const controlador ={
 
 }
 
-module.exports = controlador;
+module.exports = controlador; */
