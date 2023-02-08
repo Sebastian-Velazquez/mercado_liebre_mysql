@@ -509,4 +509,68 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 				});
 				// SELECT * FROM autos WHERE id = 42; 
 
+	USAR CONDICION WHERE para llamar consultas mysql
+		A menudo queremos buscar en la base de datos, pero no queremos todos los registros, solo aquellos que cumplan 
+		una condición. Para filtrar datos usamos un objeto literal con el atributo WHERE y un método de búsqueda
+
+			WHERE: Para agregar una condición a la consulta, simplemente debemos pasar el atributo where al método findAll():
+				const db = require('../database/models');
+				db.Auto.findAll({
+				where: {
+				   marca: 'Fiat'
+				}
+				}).then(resultados=>{
+				       console.log(resultados);
+				   })
+
+			LIKE: Para agregar condiciones a la búsqueda del Where, podemos utilizar los operadores que trae Sequelize. Uno de ellos es Like:
+				const db = require('../database/models');
+				const Op = db.Sequelize.Op;
+				Post.findAll({
+				   where: {
+				apellido: {[Op.Like]:'%s%'}
+				   }
+				}).then(resultados=>{
+				       console.log(resultados);
+				   })
+		Documentacion: https://sequelize.org/v5/manual/querying.html	
+
+
+	Order, Limit y Offset
+		1. Order: Order es una forma de ordenar el resultado de la consulta a la base de datos a través de una columna elegida.
+				Podemos ordenar los elementos por id, fecha de creación, nombre, etc.
+			En sequelize, para ordenar el resultado simplemente hay que usar el atributo order, que recibe un array
+			db.Usuario.findAll({
+				order: [
+					['nombre', 'ASC'],
+				],
+			});
+		2. Limit: sirve para limitar el número de resultados a obtener.
+			Para limitar el número de resultados, simplemente hay que agregar el atributo limit al objeto y pasarlo al findAll()
+			db.Usuario.findAll({
+			   limit: 10
+			   })
+			   .then((resultados) => {
+			   console.log(resultados)
+			})
+		3. Offset: Offset sirve para omitir varios resultados. Es utilizado ampliamente para paginar los resultados.
+			Para omitir varios elementos del resultado, simplemente hay que agregar el atributo offset al objeto y pasarlo al findAll():
+			db.Usuario.findAll({
+			   offset: 10
+			   })
+			   .then((resultados) => {
+			   console.log(resultados)
+			})
+		Order + Limit + Offset Ejemplo:
+			db.Usuario.findAll({
+			   order: [['nombre', 'ASC']],
+			   offset: 5,
+			   limit: 10
+			})
+		Documentacion: https://sequelize.org/v4/manual/tutorial/querying.html#pagination-limiting
+
+
+
+
+
 
