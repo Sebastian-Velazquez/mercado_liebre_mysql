@@ -8,6 +8,12 @@ module.exports = (sequelize, DataTypes) =>{
         },
         title:{
             type: DataTypes.STRING
+        },
+        genre_id: {
+            type: DataTypes.STRING
+        },
+        rating:{
+            type: DataTypes.INTEGER
         }
     };
     let config = {

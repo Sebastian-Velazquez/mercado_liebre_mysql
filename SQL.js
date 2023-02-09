@@ -576,7 +576,10 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 			})
 		Documentacion: https://sequelize.org/v4/manual/tutorial/querying.html#pagination-limiting
 
+-------------------------------------------------------------------------------------------
 
+Clase 38. Crear, moficcary eliminar
+	Create
 
 
 
