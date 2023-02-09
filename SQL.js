@@ -341,7 +341,10 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 		 'seeders-path': path.resolve('./database/seeders'),
 		 'migrations-path': path.resolve('./database/migrations'),
 		}
-	En terminal escribimos: sequelize init
+	En terminal escribimos:colocarse en la tarminal dentro de la carpeta 
+	/src y ejecutar el siguiente comando: sequelize init
+	Esto es para que se ejecute y cree las carpetas en src y seguir con un buen orden.
+
 	TE pone esto en consola: 
 
 		Sequelize CLI [Node: 18.12.1, CLI: 6.6.0, ORM: 6.28.0]
@@ -379,7 +382,10 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 	Y listo de ahora en mas si queremos llamar la la base de datos con la variable exportada "db" que esta en config/models/index.js
 
 
-	MODELOS: es para enlazar una db mysql en node.js
+	MODELOS: 
+		ANTES QUE NADA SE MODELA UNO POR UNO Y SE PRUEBA SI ANDA UNO POR UNO
+		ESTO PORQUE Sequelize MIRAS TODOS LOS MODELS DE DB QUE FUNCIONEN
+		es para enlazar una db mysql en node.js
 		Creando un modelo: En los patrones de diseño MVC (Modelo - Vista - Controlador ), los modelos contienen únicamente los datos
 		puros de aplicación. No contienen lógica que describa cómo pueden presentarse los datos a un usuario. Este puede acceder a la
 		capa de almacenamiento de datos. Lo ideal es que el modelo sea independiente del sistema de almacenamiento.
@@ -486,6 +492,7 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 	FIND: Sequelize utiliza la función find para buscar información en una base de datos. Junto con find tenemos algunas 
 		variaciones como findAll(), findOne(), findByPk().
 			1. findAll(): Para buscar todos los datos registrados en la tabla debemos usar: findAll().
+const { Sequelize } = require('sequelize')
 				const db = require('../database/models');
 
 				db.Usuario.findAll()
