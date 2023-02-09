@@ -470,7 +470,7 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 				let cols ={//definimos las columas de las tablas
 				id: {
 					type: DataTypes.INTEGER, //definimos las propiedades de las comna de db
-					promaryKey: true,
+					primaryKey: true,
 					autoIncrement: true
 				},//si no definimos una.. es una que sequalize no va a recuperar.. no lo podes usar en el codigo
 				title: {
@@ -492,7 +492,7 @@ Sequelize y su configuración. Es un npm para poder interactuar y usar el la db 
 	FIND: Sequelize utiliza la función find para buscar información en una base de datos. Junto con find tenemos algunas 
 		variaciones como findAll(), findOne(), findByPk().
 			1. findAll(): Para buscar todos los datos registrados en la tabla debemos usar: findAll().
-const { Sequelize } = require('sequelize')
+				const { Sequelize } = require('sequelize')
 				const db = require('../database/models');
 
 				db.Usuario.findAll()

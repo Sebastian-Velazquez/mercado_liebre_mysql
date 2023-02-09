@@ -1,12 +1,18 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = "Peliculas";
+    let alias = "Movies";
     let cols ={
         id: {
             type: DataTypes.INTEGER, //definimos las propiedades de las comna de db
-            promaryKey: true,
+            primaryKey: true,
             autoIncrement: true
         },
-        
+        title:{
+            type: DataTypes.STRING
+        }
+    };
+    let config = {
+        tableName: "movies",//esto se pone porque lo general el nombbre de la tabla el mismo nombre que el js
+        timestamps: false //es  por si no tiene las tablas createdate y update
     }
 
 

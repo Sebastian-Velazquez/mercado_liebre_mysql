@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path'); 
+const path = require('path');//para JSON 
 
 /* En la constante "products" ya tienen los productos que están 
 guardados en la carpeta Data como Json (un array de objetos literales) */
