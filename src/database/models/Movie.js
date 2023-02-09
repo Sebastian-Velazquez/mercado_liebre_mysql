@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.INTEGER, //definimos las propiedades de las comna de db
             promaryKey: true,
             autoIncrement: true
-        }
+        },
+        
     }
 
 
