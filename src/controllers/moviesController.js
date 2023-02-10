@@ -63,6 +63,9 @@ const controlador ={
                 }
             })
         res.redirect("/movies/edit/" + req.params.id)
+    },
+    delete:(req,res)=>{
+
     }
 }
 

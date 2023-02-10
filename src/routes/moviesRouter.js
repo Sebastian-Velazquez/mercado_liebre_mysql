@@ -21,6 +21,7 @@ router.post("/create/", moviesController.processCreate);
 //Formulario editat pelicula
 router.get("/edit/:id", moviesController.edit);
 router.post("/edit/:id", moviesController.proccesEdit);//para que quede mas prolijo cambiar post por el que corresponde
-
+//Formulario para eliminar pelicula
+router.get("/delete/:id", moviesController.delete);
 
 module.exports = router;
