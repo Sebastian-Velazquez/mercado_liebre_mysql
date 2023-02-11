@@ -6,11 +6,17 @@ const controlador ={
         .then(function(peliculas){
             res.render("moviesList",{peliculas:peliculas})
         })
+        .catch(function(error){
+            res.send(error);
+        })
     },
     detail:(req,res)=>{
         db.Movies.findByPk(req.params.id)//paramrtro del body. id porque pusimos asi en el router
         .then(pelicula=>{
             res.render("movieDetail",{pelicula:pelicula})
+        })
+        .catch(function(error){
+            res.send(error);
         })
     },
     drama:(req, res)=>{
@@ -21,6 +27,9 @@ const controlador ={
             })
             .then(function(peliculas){
                 res.render("moviesDrama",{peliculas:peliculas})
+            })
+            .catch(function(error){
+                res.send(error);
             })
     },
     top:(req, res)=>{
@@ -35,6 +44,9 @@ const controlador ={
             })
             .then(function(peliculas){
                 res.render("moviesTop",{peliculas:peliculas})
+            })
+            .catch(function(error){
+                res.send(error);
             })
     },
     create:(req,res)=>{
@@ -52,6 +64,9 @@ const controlador ={
         .then(pelicula=>{
             res.render("movieEdit",{pelicula:pelicula})
         })
+        .catch(function(error){
+            res.send(error);
+        })
     },
     proccesEdit:(req,res)=>{
         db.Movies.update({
@@ -65,7 +80,13 @@ const controlador ={
         res.redirect("/movies/edit/" + req.params.id)
     },
     delete:(req,res)=>{
-
+        //res.send("HOLA")
+        db.Movies.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        res.redirect("/movies/list")
     }
 }
 
