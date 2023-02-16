@@ -1,4 +1,9 @@
-const path = require('path')
+const path = require('path')//se ejecuta con el cmando: npm i install sequalizerc
+//comandos: npm install sequelize-cli -g
+//npm install sequelize
+//npm install mysql2
+//intala las carpetas necesarias. Tiene que estar dentro de la carperta src y 
+//por ultmo enejetar en el comando : sequelizerc init. La consola de comando tiene que estar dentro de la carpeta src
 
     module.exports = {
         config: path.resolve('./database/config', 'config.js'),

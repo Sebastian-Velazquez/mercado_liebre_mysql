@@ -22,7 +22,7 @@ const controlador ={
     drama:(req, res)=>{
         db.Movies.findAll({
                 where:{
-                    genre_id: 3
+                    genre_id: 3//busca el genero con id 3
                 }
             })
             .then(function(peliculas){
