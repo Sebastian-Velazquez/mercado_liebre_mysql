@@ -23,10 +23,16 @@
         <div>
             <label for="">Genero</label>
                 <select name="genero">
-                    <% for(i=0; i < generos.length; i++) {%>
-                        <option value="<%= generos[i].id %>">
+                    <% for(let i=0; i < generos.length; i++) { %>
+                        <% if (generos[i].id == pelicula.genre_id) { %>
+                            <option value="<%= generos[i].id %>" selected>
                             <%= generos[i].name %>
-                        </option>
+                            </option>
+                        <% } else { %>
+                            <option value="<%= generos[i].id %>">
+                            <%= generos[i].name %>
+                            </option>>
+                        <% } %>
                     <% } %>
                 </select>
         </div>
@@ -38,7 +44,7 @@
             <label for="titulo">Rating</label>
             <input type="text" name="rating" value="<%= pelicula.rating %>">
         </div>
-        <button type="submit" >Enviar</button>
+        <button type="submit" >Editar</button>
     </form>
 </body>
 </html>
