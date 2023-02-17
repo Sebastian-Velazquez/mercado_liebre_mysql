@@ -80,6 +80,17 @@ const controlador ={
         .catch(function(error){
             res.send(error);
         })
+
+       /*  let pedidoPeliculas = db.Movies.findByPk(req.params.id)
+        let pedidosGeneros = db.Movies.findAll(req.params.id)
+
+        Promise.all([pedidoPeliculas, pedidosGeneros])//para poder llamar dos tablas
+        .then((pelicula,genero)=>{
+            res.render("movieEdit",{pelicula:pelicula},{genero:genero} )
+        })
+        .catch(function(error){
+            res.send(error);
+        }) */
     },
     proccesEdit:(req,res)=>{
         db.Movies.update({
