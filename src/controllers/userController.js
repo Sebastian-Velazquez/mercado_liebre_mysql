@@ -4,7 +4,7 @@ const {validationResult} = require('express-validator'); //validationResult es u
 const User = require('../models/User')
 
 const controlador ={ //IMPORTANTE
-    /************Crear Usuario***************/
+    /************Crear Usuario*****************/
     register:(req, res)=>{
         return res.render('register');
     },
