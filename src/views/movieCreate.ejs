@@ -17,19 +17,11 @@
             <input type="text" name="premio">
         </div>
         <div>
-            <label for="titulo">Duración</label>
-            <input type="text" name="duracion">
-        </div>
-        <div>
-            <label for="titulo">Rating</label>
-            <input type="text" name="rating">
-        </div>
-        <div>
             <label for="titulo">Fecha de estreno</label>
-            <input type="text" name="rating">
+            <input type="text" name="fechaEstreno">
         </div>
         <div>
-            <label for="">
+            <label for="">Genero</label>
                 <select name="genero">
                     <% for(i=0; i < generos.length; i++) {%>
                         <option value="<%= generos[i].id %>">
@@ -37,7 +29,14 @@
                         </option>
                     <% } %>
                 </select>
-            </label>
+        </div>
+        <div>
+            <label for="titulo">Duración</label>
+            <input type="text" name="duracion">
+        </div>
+        <div>
+            <label for="titulo">Rating</label>
+            <input type="text" name="rating">
         </div>
         <button type="submit" >Enviar</button>
     </form>

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) =>{
             autoIncrement: true
         },
         name: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
     };
     let config = {

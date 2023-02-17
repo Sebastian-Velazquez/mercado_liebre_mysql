@@ -11,7 +11,9 @@ const controlador ={
         })
     },
     detail:(req,res)=>{
-        db.Movies.findByPk(req.params.id)//paramrtro del body. id porque pusimos asi en el router
+        db.Movies.findByPk(req.params.id,{//paramrtro del body. id porque pusimos asi en el router
+            include:[{association: "genero"},{association: "actores"}]
+        })
         .then(pelicula=>{
             res.render("movieDetail",{pelicula:pelicula})
         })
@@ -68,7 +70,7 @@ const controlador ={
             length: req.body.duracion,
             rating:  req.body.rating  //del lado derecho son los nombres de los formularios
         })
-        res.redirect("/movies/list")
+        return res.redirect("/movies/list")
     },
     edit:(req,res)=>{
         db.Movies.findByPk(req.params.id)

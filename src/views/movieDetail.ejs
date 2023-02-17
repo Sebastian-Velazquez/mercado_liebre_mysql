@@ -8,6 +8,19 @@
 </head>
 <body>
     <h1><%= pelicula.title %></h1>
+    <h2>Premios:<%= pelicula.awards %></h2>
+    <h2>Fecha: <%= pelicula.release_date %></h2>
+    <h2>Genero: <%= pelicula.genero.name %></h2>
+    <h2>Duración: <%= pelicula.length %></h2>
+    <h2>Rating: <%= pelicula.rating %></h2>
+    <h2>Actores</h2>
+    <ul>
+        <% for(i=0;i < pelicula.actores.length; i++) { %>
+            <li>
+                <%= pelicula.actores[i].first_name %> <%= pelicula.actores[i].last_name %>
+            </li>
+        <% } %>
+    </ul>
     <form action="/movies/delete/<%= pelicula.id %>" method="post">
         <button type="submit">DELETE</button>
     </form>
