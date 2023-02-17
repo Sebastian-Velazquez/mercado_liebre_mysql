@@ -28,7 +28,17 @@
             <label for="titulo">Fecha de estreno</label>
             <input type="text" name="rating">
         </div>
-        
+        <div>
+            <label for="">
+                <select name="genero">
+                    <% for(i=0; i < generos.length; i++) {%>
+                        <option value="<%= generos[i].id %>">
+                            <%= generos[i].name %>
+                        </option>
+                    <% } %>
+                </select>
+            </label>
+        </div>
         <button type="submit" >Enviar</button>
     </form>
 </body>

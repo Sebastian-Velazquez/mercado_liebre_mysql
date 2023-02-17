@@ -50,11 +50,22 @@ const controlador ={
             })
     },
     create:(req,res)=>{
-        res.render("movieCreate")
+        db.Genres.findAll()
+        .then(function(generos){
+            res.render("movieCreate",{generos:generos})
+        })
+        .catch(function(error){
+            res.send(error);
+        })
+        //res.render("movieCreate")
     },
     processCreate:(req, res)=>{
         db.Movies.create({
             title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
+            awards: req.body.premio,
+            release_date: req.body.fechaEstreno,
+            genre_id: req.body.genero,
+            length: req.body.duracion,
             rating:  req.body.rating  //del lado derecho son los nombres de los formularios
         })
         res.redirect("/movies/list")
