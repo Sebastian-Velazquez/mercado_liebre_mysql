@@ -73,24 +73,21 @@ const controlador ={
         return res.redirect("/movies/list")
     },
     edit:(req,res)=>{
-        db.Movies.findByPk(req.params.id)
+        /*db.Movies.findByPk(req.params.id),
         .then(pelicula=>{
             res.render("movieEdit",{pelicula:pelicula})
         })
         .catch(function(error){
             res.send(error);
-        })
+        })*/
 
-       /*  let pedidoPeliculas = db.Movies.findByPk(req.params.id)
-        let pedidosGeneros = db.Movies.findAll(req.params.id)
+        let pedidoPeliculas = db.Movies.findByPk(req.params.id);
+        let pedidosGeneros = db.Genres.findAll();
 
         Promise.all([pedidoPeliculas, pedidosGeneros])//para poder llamar dos tablas
-        .then((pelicula,genero)=>{
-            res.render("movieEdit",{pelicula:pelicula},{genero:genero} )
+        .then(function([pelicula, generos]){
+            res.render("movieEdit", {pelicula:pelicula, generos:generos})
         })
-        .catch(function(error){
-            res.send(error);
-        }) */
     },
     proccesEdit:(req,res)=>{
         db.Movies.update({

@@ -7,11 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/movies/edit/<%= pelicula.id %>" method="POST">
-        <label for="titulo">Titulo de la Peicula</label>
-        <input type="text" name="titulo" value="<%= pelicula.title %>">
-        <label for="titulo">valor rating</label>
-        <input type="text" name="rating" value="<%= pelicula.rating %>">
+    <form action="/movies/edit" method="POST">
+        <div>
+            <label for="titulo">Titulo</label>
+            <input type="text" name="titulo" value="<%= pelicula.title %>">
+        </div>
+        <div>
+            <label for="premio">Premios</label>
+            <input type="text" name="premio" value="<%= pelicula.awards %>">
+        </div>
+        <div>
+            <label for="titulo">Fecha de estreno</label>
+            <input type="text" name="fechaEstreno" value="<%= pelicula.release_date %>">
+        </div>
+        <div>
+            <label for="">Genero</label>
+                <select name="genero">
+                    <% for(i=0; i < generos.length; i++) {%>
+                        <option value="<%= generos[i].id %>">
+                            <%= generos[i].name %>
+                        </option>
+                    <% } %>
+                </select>
+        </div>
+        <div>
+            <label for="titulo">Duración</label>
+            <input type="text" name="duracion" value="<%= pelicula.length %>">
+        </div>
+        <div>
+            <label for="titulo">Rating</label>
+            <input type="text" name="rating" value="<%= pelicula.rating %>">
+        </div>
         <button type="submit" >Enviar</button>
     </form>
 </body>
