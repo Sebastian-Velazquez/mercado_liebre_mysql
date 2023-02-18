@@ -21,7 +21,7 @@
             </li>
         <% } %>
     </ul>
-    <form action="/movies/delete/<%= pelicula.id %>" method="post">
+    <form action="/movies/delete/<%= pelicula.id %>?_method=DELETE" method="POST">
         <button type="submit">DELETE</button>
     </form>
     <form action="/movies/edit/<%= pelicula.id %>" method="get">
