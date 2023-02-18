@@ -10,6 +10,7 @@ const controlador ={
             res.send(error);
         })
     },
+    //detalle
     detail:(req,res)=>{
         db.Movies.findByPk(req.params.id,{//paramrtro del body. id porque pusimos asi en el router
             include:[{association: "genero"},{association: "actores"}]
