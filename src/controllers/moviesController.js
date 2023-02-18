@@ -90,15 +90,19 @@ const controlador ={
         })
     },
     proccesEdit:(req,res)=>{
-        db.Movies.update({
-                title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
-                rating:  req.body.rating  //del lado derecho son los nombres de los formularios
+                db.Movies.update({
+            title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
+            awards: req.body.premio,
+            release_date: req.body.fechaEstreno,
+            genre_id: req.body.genero,
+            length: req.body.duracion,
+            rating:  req.body.rating  //del lado derecho son los nombres de los formularios
             },{
                 where:{
                     id: req.params.id
                 }
-            })
-        res.redirect("/movies/edit/" + req.params.id)
+            });
+        res.redirect("/movies/list/" + req.params.id)
     },
     delete:(req,res)=>{
         //res.send("HOLA")

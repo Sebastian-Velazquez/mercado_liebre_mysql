@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/movies/edit" method="POST">
+    <form action="/movies/edit/<%= pelicula.id %>" method="POST">
         <div>
             <label for="titulo">Titulo</label>
             <input type="text" name="titulo" value="<%= pelicula.title %>">
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label for="titulo">Fecha de estreno</label>
-            <input type="text" name="fechaEstreno" value="<%= pelicula.release_date %>">
+            <input type="date" name="fechaEstreno" >
         </div>
         <div>
             <label for="">Genero</label>
