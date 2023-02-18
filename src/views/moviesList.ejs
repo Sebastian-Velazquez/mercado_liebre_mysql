@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/moviesList.css" rel="stylesheet"> 
+    <!--     Pagina de icons -->
+    <script src="https://kit.fontawesome.com/aef00d3210.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
-    <% for (let i = 0; i < peliculas.length; i++){ %> 
-    <li>
-        <a href="/movies/list/<%= peliculas[i].id %>"><%= peliculas[i].title %></a>
-        
-    </li>
-    <% } %> 
+    <%- include('parcials/header.ejs') %>
+    <main class="contenedor">
+        <%- include('parcials/banner.ejs') %>
+        <form action="/movies/create" method="get">
+            <button type="submit">CREAR</button>
+        </form>
+        <% for (let i = 0; i < peliculas.length; i++){ %> 
+        <li class="movie-list">
+            <a href="/movies/list/<%= peliculas[i].id %>"><%= peliculas[i].title %></a>
+            
+        </li>
+        <% } %> 
+    </main>
+    <%- include('parcials/footer.ejs') %>
 </body>
 </html>

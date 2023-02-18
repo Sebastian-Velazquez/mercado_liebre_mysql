@@ -1,0 +1,12 @@
+@import url(normalize.css);
+@import url(header.css);
+@import url(footer.css);
+
+.contenedor{
+	display: flex;
+	background-color: white;
+	flex-direction: column;
+}
+.movie-list{
+	list-style: none;
+}

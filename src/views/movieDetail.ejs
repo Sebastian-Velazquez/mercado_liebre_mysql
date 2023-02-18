@@ -10,7 +10,11 @@
     <h1><%= pelicula.title %></h1>
     <h2>Premios:<%= pelicula.awards %></h2>
     <h2>Fecha: <%= pelicula.release_date %></h2>
-    <h2>Genero: <%= pelicula.genero.name %></h2>
+        <% if (pelicula.genero.name == NULL ) { %>
+            <h2>Genero: No tiene genero asignado %></h2>
+        <% }else{ %>
+            <h2>Genero: <%= pelicula.genero.name %></h2>
+        <% } %>
     <h2>Duración: <%= pelicula.length %></h2>
     <h2>Rating: <%= pelicula.rating %></h2>
     <h2>Actores</h2>
