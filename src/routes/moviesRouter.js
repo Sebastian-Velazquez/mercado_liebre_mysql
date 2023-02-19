@@ -6,7 +6,8 @@ const router = express.Router();
 //Controllers
 const moviesController = require("../controllers/moviesController.js");
 
-
+//middlewares
+const validations = require("../middlewares/moviesRouter/validationsMiddlewareMoviesRouter");
 
 //lista completa de peliculas
 router.get("/list", moviesController.index);
@@ -17,9 +18,9 @@ router.get("/drama/", moviesController.drama);
 //Muestr peliculas con rating mayo a 8
 router.get("/top/", moviesController.top);
 //Formulario crear prductos
-router.get("/create/", moviesController.create);
+router.get("/create/",  moviesController.create);
 //Formulario crear prductos
-router.post("/create/", moviesController.processCreate);
+router.post("/create/", validations, moviesController.processCreate);
 //Formulario editat pelicula
 router.get("/edit/:id", moviesController.edit);
 router.put("/edit/:id", moviesController.proccesEdit);//para que quede mas prolijo cambiar post por el que corresponde

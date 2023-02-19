@@ -1,3 +1,4 @@
+const {validationResult} = require('express-validator');
 let db = require("../database/models")
 //const { Sequelize } = require('sequelize')
 const controlador ={
@@ -62,6 +63,19 @@ const controlador ={
         //res.render("movieCreate")
     },
     processCreate:(req, res)=>{
+        //validacion
+        const resultValidation = validationResult(req);//validacion
+        if (resultValidation.errors.length > 0){//resultValidation.errors es un objeto literal//mapped: pasa la variable resultValidation a literiario
+            db.Genres.findAll()
+        .then(function(generos){
+            return res.render("movieCreate",{generos:generos, errors: resultValidation.mapped(), oldData: req.body})
+        })
+        .catch(function(error){
+            res.send(error);
+        })
+            //return res.render('movieCreate', {errors: resultValidation.mapped(), oldData: req.body }) //Para mostrar los datos bien ingresados
+            }else{//si todo esta bien se guarda
+            
         db.Movies.create({
             title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
             awards: req.body.premio,
@@ -71,6 +85,7 @@ const controlador ={
             rating:  req.body.rating  //del lado derecho son los nombres de los formularios
         })
         return res.redirect("/movies/list")
+        }
     },
     edit:(req,res)=>{
         /*db.Movies.findByPk(req.params.id),

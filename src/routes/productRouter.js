@@ -12,7 +12,7 @@ router.get("/ofertas/", productController.oferta);// procesa pedido de get. Ahor
 
 //Middleware
 const upload = require("../middlewares/productRouter/multerMiddlewareProducts");
-const validations = require("../middlewares/productRouter/validationsMiddleware")
+const validations = require("../middlewares/productRouter/validationsMiddleware");
 const validationsEdit = require("../middlewares/productRouter/validationsMiddlewareProductEdit")
 const authMiddlewares = require("../middlewares/userRouter/authMiddlewares");//si no tengo a nadie en session
 
