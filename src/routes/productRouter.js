@@ -12,7 +12,7 @@ router.get("/ofertas/", productController.oferta);// procesa pedido de get. Ahor
 
 //Middleware
 const upload = require("../middlewares/productRouter/multerMiddlewareProducts");
-const validations = require("../middlewares/productRouter/validationsMiddleware");
+const validations = require("../middlewares/productRouter/validationsMiddleware");//no se usa
 const validationsEdit = require("../middlewares/productRouter/validationsMiddlewareProductEdit")
 const authMiddlewares = require("../middlewares/userRouter/authMiddlewares");//si no tengo a nadie en session
 
@@ -20,7 +20,7 @@ const authMiddlewares = require("../middlewares/userRouter/authMiddlewares");//s
 router.get("/detail/:id", productController.detail);
 //Crear producto //upload.single("productImage")... productImage es el name del input tipo file//es para manejar multer y que solo revise ese pedido.. si queremos que lo tenga otro pedidom ponemos lo mismo
 router.get("/create/",authMiddlewares, productController.create);//muestra la vista o pagina
-router.post("/create/", upload.single("image"),validations,productController.processCreate);//se encarga de procesar los datos cuando se ejecuta el boton comi
+router.post("/create/", upload.single("image"),validationsEdit,productController.processCreate);//se encarga de procesar los datos cuando se ejecuta el boton comi
 //manda toda la lista de productos Lista de producto sd asd
 router.get("/list", productController.list);
 //Editar prducto get y put

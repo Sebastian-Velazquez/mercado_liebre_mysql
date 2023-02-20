@@ -16,5 +16,14 @@
   "password": "$2a$10$ThNjHtzytUbXjrnPtskg1OagQt.IDcyiN5mIJfxiL.jHtgY9uHUw.",
   "repeatPassword": "asd",
   "image": "image-1675350616952.png"
+ },
+ {
+  "id": 3,
+  "firstName": "Mabel",
+  "lastName": "Rios",
+  "email": "mabelrios@remis.com",
+  "password": "$2a$10$f2tS.6gRLGEsrzUqXEmtL.j7QpHnPkPwENP4i/CtBMDQ0BVLrxO4u",
+  "repeatPassword": "asd",
+  "image": "default-avatar.png"
  }
 ]

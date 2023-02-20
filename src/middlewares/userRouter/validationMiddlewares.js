@@ -15,9 +15,7 @@ const validations =[
         /* console.log(file) */
         let aceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg'];
         
-        if (!file){
-            throw new Error('Tenes que subir una imagen'); //sacado directamente de express-validator
-        } else {
+        if (file){
             let fileExtension = path.extname(file.originalname);
             if (!aceptedExtensions.includes(fileExtension)){
                 throw new Error(`Las extensiones de archivo permitidos son ${aceptedExtensions.join(', ')}`)
@@ -27,3 +25,13 @@ const validations =[
     })
 ];
 module.exports = validations;
+
+
+/* if (!file){
+    throw new Error('Tenes que subir una imagen'); //sacado directamente de express-validator
+} else {
+    let fileExtension = path.extname(file.originalname);
+    if (!aceptedExtensions.includes(fileExtension)){
+        throw new Error(`Las extensiones de archivo permitidos son ${aceptedExtensions.join(', ')}`)
+    }
+} */

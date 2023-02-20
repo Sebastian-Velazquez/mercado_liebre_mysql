@@ -53,23 +53,25 @@ const controlador ={
             })
     },
     create:(req,res)=>{
-        let pedidoActores = db.Actors.findAll();
+        /* let pedidoActores = db.Actors.findAll();
         let pedidosGeneros = db.Genres.findAll();
-
+        
         Promise.all([pedidoActores, pedidosGeneros])//para poder llamar dos tablas
         .then(function([actores, generos]){
             res.render("movieCreate", {actores:actores, generos:generos})
         })
         .catch(function(error){
             res.send(error);
-        })
+        }) */ 
         //
-        /* db.Genres.findAll()
-        .then(function(generos){
+         db.Genres.findAll()
+        .then(generos=>{
             res.render("movieCreate",{generos:generos})
         })
-         */
-        //res.render("movieCreate")
+        .catch(function(error){
+            res.send(error);
+        }); 
+
     },
     processCreate:(req, res)=>{
         //validacion
