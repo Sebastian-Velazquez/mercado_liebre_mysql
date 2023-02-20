@@ -64,7 +64,7 @@ const controlador ={
             res.send(error);
         }) */ 
         //
-         db.Genres.findAll()
+        db.Genres.findAll()
         .then(generos=>{
             res.render("movieCreate",{generos:generos})
         })
@@ -138,6 +138,15 @@ const controlador ={
             }
         })
         res.redirect("/movies/list")
+    },
+    actorForFilm:(req, res)=>{
+        db.Actors.findAll()
+        .then(actor=>{
+            res.render("actorForFilm",{actor:actor})
+        })
+        .catch(function(error){
+            res.send(error);
+        }); 
     }
 }
 

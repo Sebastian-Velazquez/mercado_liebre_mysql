@@ -26,5 +26,7 @@ router.get("/edit/:id", moviesController.edit);
 router.put("/edit/:id", moviesController.proccesEdit);//para que quede mas prolijo cambiar post por el que corresponde
 //Formulario para eliminar pelicula
 router.delete("/delete/:id", moviesController.delete);//instalar overr-rray para que funcione post, delete, put
+//Formularo para agregar un actor a una pelicula
+router.get("/actorForFilm/",  moviesController.actorForFilm);
 
 module.exports = router;

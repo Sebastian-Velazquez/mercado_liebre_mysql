@@ -1,12 +1,23 @@
 module.exports = (sequelize, DataTypes) =>{
     let alias = "Actors";
     let cols ={
+        id:{
+            type: DataTypes.INTEGER, 
+            primaryKey: true,
+            autoIncrement: true
+        },
         first_name: {
             type: DataTypes.STRING
         },
         last_name:{
             type: DataTypes.STRING
         },
+        last_name:{
+            type: DataTypes.INTEGER
+        },
+        favorite_movie_id:{
+            type: DataTypes.INTEGER
+        }
     };
     let config = {
         tableName: "actors",//esto se pone porque lo general el nombbre de la tabla el mismo nombre que el js
