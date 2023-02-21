@@ -10,7 +10,12 @@
     <form action="/movies/edit/<%= pelicula.id %>?_method=PUT" method="POST">
         <div>
             <label for="titulo">Titulo</label>
-            <input type="text" name="titulo" value="<%= pelicula.title %>">
+            <input type="text" name="titulo" value="<%= pelicula.title %>"
+            value="<%= locals.oldData ? oldData.titulo : null %>">
+						<!-- Validacion -->
+						<% if (locals.errors && errors.titulo){ %>
+							<p class="alertError"><%= errors.titulo.msg %> </p>
+							<% } %>
         </div>
         <div>
             <label for="premio">Premios</label>

@@ -119,7 +119,8 @@ const controlador ={ //
            //Listo para mandar a .ejs//se pone el nombre del ejs entre ''.
             return res.render('product-edit-form',{
                 producto:productFiltrado,
-                errors: resultValidation.mapped()
+                errors: resultValidation.mapped(),
+                oldData: req.body 
             });
         }
 

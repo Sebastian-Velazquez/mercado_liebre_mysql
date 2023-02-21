@@ -29,8 +29,8 @@
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" value="<%= producto.name %>" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input"
-						value="<%= locals.oldData ? oldData.name : null %>">
+						<input type="text"  id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input"
+						value="<%= locals.oldData ? oldData.name :  producto.name %> %>">
 						<!-- Validacion -->
 						<% if (locals.errors && errors.name){ %>
 							<p class="alertError"><%= errors.name.msg %> </p>
