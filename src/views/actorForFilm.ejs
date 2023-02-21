@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="">Genero</label>
-    <form action="/movies/actorForFilm" method="POST">
+    <form action="/movies/actorForFilm/<%= pelicula.id %>" method="POST">
+        <label><%= pelicula.title %></label>
+        <label for="">Genero</label>
         <select name="actor">
             <% for(i=0; i < actor.length; i++) {%>
                 <option value="<%= actor[i].id %>">
-                    <%= actor[i].first_name %>
+                    <%= actor[i].first_name %> <%= actor[i].last_name %>
                 </option>
             <% } %>
             <input type="submit">

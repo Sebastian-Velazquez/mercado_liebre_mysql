@@ -140,23 +140,29 @@ const controlador ={
         res.redirect("/movies/list")
     },
     actorForFilm:(req, res)=>{
-        db.Actors.findAll()
+
+        let pedidoPeliculas = db.Movies.findByPk(req.params.id);
+        let pedidosAtores = db.Actors.findAll();
+
+        Promise.all([pedidoPeliculas, pedidosAtores])//para poder llamar dos tablas
+        .then(function([pelicula, actor]){
+            res.render("actorForFilm", {pelicula:pelicula, actor:actor})
+        })
+
+
+/*         db.Actors.findAll()
         .then(actor=>{
             res.render("actorForFilm",{actor:actor})
         })
         .catch(function(error){
             res.send(error);
-        }); 
+        });  */
     },
     processActorForFilm:(req, res)=>{
-        db.Movies.create({
-            title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
-            awards: req.body.premio,
-            release_date: req.body.fechaEstreno,
-            genre_id: req.body.genero,
-            length: req.body.duracion,
-            rating:  req.body.rating  //del lado derecho son los nombres de los formularios
-        })
+        db.ActoresPeliculas.create({
+            actor_id: req.body.actor,  //del lado izquierdo es el nombrede la columnas en la base de datos
+            movie_id: req.params.id
+        });
         return res.redirect("/movies/list")
     }
 }
