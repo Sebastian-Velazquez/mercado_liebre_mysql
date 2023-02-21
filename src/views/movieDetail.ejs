@@ -21,7 +21,7 @@
             </li>
         <% } %>
     </ul>
-    <a href="/movies/actorForFilm"> <h3>Agregar pelicula</h3></a>
+    <a href="/movies/actorForFilm/<%= pelicula.id %>"> <h3>Agregar pelicula</h3></a>
     <form action="/movies/delete/<%= pelicula.id %>?_method=DELETE" method="POST">
         <button type="submit">DELETE</button>
     </form>

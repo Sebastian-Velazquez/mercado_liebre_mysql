@@ -8,7 +8,7 @@
 </head>
 <body>
     <label for="">Genero</label>
-    <form action="/" method="POST">
+    <form action="/movies/actorForFilm" method="POST">
         <select name="actor">
             <% for(i=0; i < actor.length; i++) {%>
                 <option value="<%= actor[i].id %>">

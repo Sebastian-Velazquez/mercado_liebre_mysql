@@ -115,7 +115,7 @@ const controlador ={
             res.render("movieEdit", {pelicula:pelicula, generos:generos})
         })
     },
-    proccesEdit:(req,res)=>{
+    processEdit:(req,res)=>{
                 db.Movies.update({
             title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
             awards: req.body.premio,
@@ -147,6 +147,17 @@ const controlador ={
         .catch(function(error){
             res.send(error);
         }); 
+    },
+    processActorForFilm:(req, res)=>{
+        db.Movies.create({
+            title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
+            awards: req.body.premio,
+            release_date: req.body.fechaEstreno,
+            genre_id: req.body.genero,
+            length: req.body.duracion,
+            rating:  req.body.rating  //del lado derecho son los nombres de los formularios
+        })
+        return res.redirect("/movies/list")
     }
 }
 
