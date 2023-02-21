@@ -123,7 +123,10 @@ const controlador ={
             let pedidosGeneros = db.Genres.findAll();
             Promise.all([pedidoPeliculas, pedidosGeneros])
         .then(function([pelicula, generos]){
-            return res.render("movieEdit",{pelicula:pelicula, generos:generos, errors: resultValidation.mapped(), oldData: req.body})
+            return res.render("movieEdit",{pelicula:pelicula, 
+                generos:generos, 
+                errors: resultValidation.mapped(), 
+                oldData: req.body})
         })
         .catch(function(error){
             res.send(error);

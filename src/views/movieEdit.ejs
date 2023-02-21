@@ -10,8 +10,8 @@
     <form action="/movies/edit/<%= pelicula.id %>?_method=PUT" method="POST">
         <div>
             <label for="titulo">Titulo</label>
-            <input type="text" name="titulo" value="<%= pelicula.title %>"
-            value="<%= locals.oldData ? oldData.titulo : null %>">
+            <input type="text" name="titulo" 
+            value="<%= locals.oldData ? oldData.titulo : pelicula.title %>">
 						<!-- Validacion -->
 						<% if (locals.errors && errors.titulo){ %>
 							<p class="alertError"><%= errors.titulo.msg %> </p>
@@ -23,11 +23,13 @@
         </div>
         <div>
             <label for="titulo">Fecha de estreno</label>
-            <input type="date" name="fechaEstreno" >
+            <input type="date" name="fechaEstreno">
         </div>
         <div>
             <label for="">Genero</label>
                 <select name="genero">
+                    
+                    <option></option>
                     <% for(let i=0; i < generos.length; i++) { %>
                         <% if (generos[i].id == pelicula.genre_id) { %>
                             <option value="<%= generos[i].id %>" selected>
@@ -40,10 +42,20 @@
                         <% } %>
                     <% } %>
                 </select>
+                <!-- Validacion -->
+                <% if (locals.errors && errors.genero){ %>
+                    <p class="alertError"><%= errors.genero.msg %> </p>
+                    <% } %>
+                <!-- Validacion -->
         </div>
         <div>
             <label for="titulo">Duración</label>
-            <input type="text" name="duracion" value="<%= pelicula.length %>">
+            <input type="text" name="duracion" value="<%= pelicula.length %>"
+            value="<%= locals.oldData ? oldData.titulo : pelicula.length %>">
+						<!-- Validacion -->
+						<% if (locals.errors && errors.duracion){ %>
+							<p class="alertError"><%= errors.duracion.msg %> </p>
+							<% } %>
         </div>
         <div>
             <label for="titulo">Rating</label>
