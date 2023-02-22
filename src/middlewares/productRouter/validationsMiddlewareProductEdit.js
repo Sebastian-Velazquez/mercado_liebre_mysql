@@ -7,7 +7,7 @@ const validations =[
     body('name').notEmpty().withMessage('Tienes que escribir el nombre del producto'),  //firstName sale del name de ejs. notEmty es una validacion, valida si el campo esta vacio
     body('price').notEmpty().withMessage('Tienes que escribir un precio').bail()//bail es para detener la ejecucion
                 .isCurrency().withMessage('Tienes que escribir un numero correcto'),//withMessage: para cambiar el mesaje de error
-    //body('discount').notEmpty().withMessage('Tienes que escribir un numero para el descuento').bail()//bail para que cote la ejecicion, en este caso si hay un campo vacio
+    body('category').notEmpty().withMessage('Tienes que escribir un numero para el descuento'),//.bail()//bail para que cote la ejecicion, en este caso si hay un campo vacio
       //              .isCurrency().withMessage('Tienes que escribir un numero correcto. Ej: 123'),
     body('image').custom((value, {req})=> {
         let file = req.file;
