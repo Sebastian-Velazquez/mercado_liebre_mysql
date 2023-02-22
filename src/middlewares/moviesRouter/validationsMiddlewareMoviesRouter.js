@@ -4,12 +4,10 @@
 const {body} = require("express-validator");//para validar solo lo que nos pasa el body//Tambien en vez de body podemos usar check()
 
 const validations =[
-    body('titulo').notEmpty().withMessage('Tienes que escribir el nombre del producto'),  
+    body('titulo').notEmpty().withMessage('Tienes que escribir el nombre de pelicula'),
     body('premio').notEmpty().withMessage('Tienes que escribir un cantidad de premios').bail()//bail es para detener la ejecucion
                 .isCurrency().withMessage('Tienes que escribir un numero correcto'),//withMessage: para cambiar el mesaje de error
     body('genero').notEmpty().withMessage('Tienes que escribir el nombre del producto'),
-    body('premio').notEmpty().withMessage('Tienes que escribir un cantidad de premios').bail()//bail es para detener la ejecucion
-                .isCurrency().withMessage('Tienes que escribir un numero correcto'),
     body('duracion').notEmpty().withMessage('Tienes que escribir la cantidad de minutos que dura la pelicula').bail()
                 .isCurrency().withMessage('Tienes que escribir un numero correcto'),//withMessage: para cambiar el mesaje de error
     body('rating').notEmpty().withMessage('Tienes que escribir el valor del rating').bail()

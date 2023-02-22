@@ -118,21 +118,19 @@ const controlador ={
     processEdit:(req,res)=>{
         //validacion
         const resultValidation = validationResult(req);//validacion
+        console.log(resultValidation)
         if (resultValidation.errors.length > 0){//resultValidation.errors es un objeto literal//mapped: pasa la variable resultValidation a literiario
             let pedidoPeliculas = db.Movies.findByPk(req.params.id);
             let pedidosGeneros = db.Genres.findAll();
             Promise.all([pedidoPeliculas, pedidosGeneros])
-        .then(function([pelicula, generos]){
-            return res.render("movieEdit",{pelicula:pelicula, 
+            .then(function([pelicula, generos]){
+            return res.render("movieEdit",{
+                pelicula:pelicula, 
                 generos:generos, 
                 errors: resultValidation.mapped(), 
                 oldData: req.body})
         })
-        .catch(function(error){
-            res.send(error);
-        })
-        }else{//si todo esta bien se guarda
-
+        }else{
                 db.Movies.update({
             title: req.body.titulo,  //del lado izquierdo es el nombrede la columnas en la base de datos
             awards: req.body.premio,
@@ -145,7 +143,7 @@ const controlador ={
                     id: req.params.id
                 }
             });
-        res.redirect("/movies/list/" + req.params.id)
+            res.redirect("/movies/list/" + req.params.id)
         }
     },
     delete:(req,res)=>{
