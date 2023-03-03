@@ -11,6 +11,12 @@ const controlador ={
             password: req.body.password,
         })
         res.send("registrado")
+    },
+    login:(req,res)=>{
+        res.render('./loginSql')
+    },
+    processLogin:(req,res)=>{
+        res.send('Logueado')
     }
 }
 
