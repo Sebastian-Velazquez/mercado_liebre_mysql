@@ -35,7 +35,7 @@
                 <select name="genero">
                     <option></option>
                     <% for(let i=0; i < generos.length; i++) { %>
-                        <% if (generos[i].id == pelicula.genre_id) { %>
+                        <% if (generos[i].id == pelicula.genre_id) { %><!-- para seleccionar el genero que tiene -->
                             <option value="<%= generos[i].id %>" selected>
                             <%= generos[i].name %>
                             </option>
