@@ -38,6 +38,7 @@ const homeRouter = require('./routes/homeRouter.js')
 const userRouter = require('./routes/userRouter.js')
 const productRouter = require('./routes/productRouter.js');
 const moviesRouter = require('./routes/moviesRouter.js');
+const userRouterSql = require('./routes/userRouterSql.js');
 
 
 // Usando los enrutadores importados linea 5
@@ -45,6 +46,7 @@ app.use("/", homeRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
 app.use("/movies", moviesRouter);
+app.use("/users", userRouterSql);
 
 //Es para escuchar el servido  hacerlo que ande  en Tander
 const port = process.env.PORT || 3001;

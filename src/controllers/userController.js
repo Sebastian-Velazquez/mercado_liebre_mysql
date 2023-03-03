@@ -1,7 +1,6 @@
 const bcryptjs = require('bcryptjs');//para encriptar contrasenias
 const {validationResult} = require('express-validator'); //validationResult es una funcion que tambien nos lo da express-validator 
-//models
-const User = require('../models/User')
+
 
 const controlador ={ //IMPORTANTE
     /************Crear Usuario*****************/
