@@ -16,7 +16,11 @@ const controlador ={
         res.render('./loginSql')
     },
     processLogin:(req,res)=>{
-        res.send('Logueado')
+        let usuario = db.Movies.findAll()
+        let email = req.body.email
+            if(usuario.email === email){
+                res.send('Logueado')
+            }
     }
 }
 
