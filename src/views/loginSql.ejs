@@ -10,9 +10,15 @@
     <form action="/users/login" method="POST">
         <label>Email:</label>
         <input type="email" name="email">
+        <!-- Validacion de Email -->
+        <% if (locals.errors && errors.email){ %>
+            <p class="alertError"><%= errors.email.msg %> </p>
+        <% } %>
         <label>Contraseña:</label>
         <input type="password" name="password">
+        <div><input type="checkbox" name="remember"> recordar usuario</div>
         <input type="submit">
+
     </form> 
 </body>
 </html>

@@ -18,39 +18,42 @@ const controlador ={
     },
     processLogin:(req,res)=>{
             //let emailBody = req.body.email
-            db.Users.findOne({
+            db.Users.findOne({ //dindOne: busca y hay un dato que sea igual al madado por el body
                 where:{
-                    email: req.body.email
+                    email: req.body.email  //
                 }
             }).then(userToLogin =>{
-                console.log(userToLogin)
                 if(userToLogin){
                     let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
                     if(isOkThePassword){
                         delete userToLogin.password; // Borrra el password para que no quede guardado.
                         //Guardar el user logeado
                         req.session.userLogged =  userToLogin
+                        
+                        //mantener session
+                        if(req.body.remember) {
+                            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
+                        }
+
                         return res.redirect('/user/profile')
                     }else{
                     //si el password no es valido
-                    return res.send("contraseña no valida"/* './users/login', {
+                    return res.render('loginSql', {
                         errors: {
                             email: {msg:'Las credenciales no son validas'}
                         }
-                        } */)
+                        })
                     }
                 }else{
-                    return res.send("mail no encontrado"/* './users/login', {
+                    return res.render('loginSql', {
                         errors: {
                             email: {msg:'No se encontro el email en DB'}
                         }
-                    } */)
+                    })
                 }
             }).catch(function(error){
                 res.send(error);
             })
-
-
     }        
 }
 
