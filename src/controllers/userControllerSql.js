@@ -17,7 +17,7 @@ const controlador ={
         res.render('./loginSql')
     },
     processLogin:(req,res)=>{
-            //let emailBody = req.body.email
+            //let emailBody = req.body.emaild
             db.Users.findOne({ //dindOne: busca y hay un dato que sea igual al madado por el body
                 where:{
                     email: req.body.email  //
